@@ -30,15 +30,22 @@ public:ListNode* reverseBetween(ListNode *head,int m ,int n) {
         head = head->next;
     }
     
+    //将modify_list_tail指向当前的head,即逆置之后的链表尾部
     ListNode *modify_list_tail = head;
     ListNode *new_head = NULL;
     
     while (head&&change_len) {
+        //备份  head->next
         ListNode *next = head->next;
+        
+        //更新  head->next
         head->next = new_head;
+        //
         new_head = head;
+        // 为下一次循环指向做准备
         head = next;
-        change_len--; // 每完成一个节点逆置，change_len--
+        // 每完成一个节点逆置，change_len--
+        change_len--;
     }
     
     //连接逆置后的链表尾与逆置段的后一个节点

@@ -19,6 +19,7 @@ struct RandomListNode {
 class Solution{
 public:
     RandomListNode *copyRandomList(RandomListNode *head){
+        
         std::map<RandomListNode *, int > node_map;
         std::vector<RandomListNode *> node_vec;
         
