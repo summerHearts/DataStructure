@@ -30,6 +30,7 @@ BTree *CreateBTree(BTree *node,int *num,int& index){
     }
     return node;
 }
+
 #pragma mark -  递归－－前序遍历
 void preOrder(BTree * root){
     if(root == NULL)
