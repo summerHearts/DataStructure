@@ -35,7 +35,7 @@ void preOrder(BTree * root){
     if(root == NULL)
         return;
     //先输出树的根节点的值
-    cout << root -> value << " ";
+    cout << root -> value << "         ";
     preOrder(root -> lchild);       //递归　左子树
     preOrder(root -> rchild);       //递归　右子树
 }
@@ -46,7 +46,7 @@ void preOrder_dxm(BTree * root){
     BTree *p = root;
     while(p != NULL || !S.empty()){
         while(p != NULL){
-            cout << p -> value << " ";
+            cout << p -> value << "       ";
             S.push(p);
             p = p -> lchild;
         }
@@ -66,7 +66,7 @@ void inOrder(BTree * root){
     if(root == NULL)
         return;
     inOrder(root -> lchild);
-    cout << root -> value << " ";
+    cout << root -> value << "         ";
     inOrder(root -> rchild);
 }
 
@@ -82,13 +82,13 @@ void inOrder_dxm(BTree * root){
         }
         if(!S.empty()){
             p = S.top();
-            cout << p -> value << " ";
+            cout << p -> value << "      ";
             S.pop();
             if(S.empty())
                 return ;
             //S.pop();
             p = S.top();
-            cout << p -> value << " ";
+            cout << p -> value << "       ";
             S.pop();
             p = p -> rchild;
         }
@@ -102,7 +102,7 @@ void postOrder(BTree * root){
         return;
     postOrder(root -> lchild);
     postOrder(root -> rchild);
-    cout << root -> value << " ";
+    cout << root -> value << "       ";
 }
 
 #pragma mark -  非递归－－后序遍历
@@ -115,7 +115,7 @@ void postOrder_dxm(BTree * root){
         cur = S.top();
         if((cur -> lchild == NULL && cur -> rchild == NULL) ||
            (pre != NULL && (pre == cur -> lchild || pre == cur ->rchild))){
-            cout << cur -> value << " ";
+            cout << cur -> value << "        ";
             S.pop();
             pre = cur;
         }else{
@@ -151,7 +151,7 @@ void print(BTree *root,int h){
     if(root != NULL){
         print(root -> rchild,h+1);
         for(int i=0; i<h; i++)
-            cout << "   ";
+            cout << "        ";
         cout << root -> value;
         print(root -> lchild,h+1);
     }
